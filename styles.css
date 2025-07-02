@@ -1,0 +1,311 @@
+/* reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*–– Theme & fonts ––*/
+:root {
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --primary: #1a1a1a;
+  --secondary: #f9f9f9;
+  --accent: #ff6f61;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--secondary);
+  color: var(--primary);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/*–– Header & nav ––*/
+header {
+  background: var(--primary);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;  /* push nav to right */
+  padding: 1rem 0;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav .nav-list {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+}
+
+.nav-list li + li {
+  margin-left: 1rem;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-list a:hover,
+.nav-list .active {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  transition: 0.3s;
+  position: relative;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/*–– Hero ––*/
+.hero {
+  padding: 1rem 0;
+  text-align: center;
+  background: var(--secondary);
+}
+
+.hero h2 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.hero p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #333;
+  line-height: 1.5;
+}
+
+/*–– Wings grid ––*/
+.wings .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+/*–– Contact form ––*/
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+}
+
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #e55b50;
+}
+
+/*–– Footer ––*/
+footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+}
+
+/*–– Responsive menu ––*/
+@media (max-width: 768px) {
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--primary);
+    flex-direction: column;
+    width: 200px;
+    display: none;
+  }
+  .nav-list.show {
+    display: flex;
+  }
+  .nav-list li + li {
+    margin: 0;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+.fullform-banner {
+  background: #f9f9f9;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.fullform-img {
+  max-width: 30%;
+  height: auto;
+  border-radius: 1px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fullform-img {
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out 0.5s forwards;
+}
+.direct-contact {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fefefe;
+  text-align: center;
+}
+
+.direct-contact h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.direct-contact p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+}
+
+.direct-contact a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.direct-contact a:hover {
+  text-decoration: underline;
+}
+/* Entry animations for wings */
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1.5s ease-out forwards;
+}
+
+/* Directional variants */
+.slide-from-left {
+  transform: translateX(-100px);
+  animation: slideInLeft 1.5s ease-out forwards;
+}
+.slide-from-right {
+  transform: translateX(100px);
+  animation: slideInRight 1.5s ease-out forwards;
+}
+.slide-from-top {
+  transform: translateY(-100px);
+  animation: slideInTop 1.5s ease-out forwards;
+}
+.slide-from-bottom {
+  transform: translateY(100px);
+  animation: slideInBottom 1.5s ease-out forwards;
+}
+
+/* Keyframes */
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInTop {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInBottom {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.calls{
+  margin-top: 5rem;
+}
